@@ -1,0 +1,6 @@
+# build directories
+/target
+
+#editors
+.idea
+.vscode
