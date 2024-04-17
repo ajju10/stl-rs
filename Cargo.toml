@@ -2,7 +2,13 @@
 name = "stl-rs"
 version = "0.1.0"
 authors = ["Ajay Yadav"]
+description = "STL like features in idiomatic rust"
+readme = "README.md"
 edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/ajju10/stl-rs"
+keywords = ["stl", "pair", "algorithms", "data_structures"]
+categories = ["data-structures", "algorithms"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
