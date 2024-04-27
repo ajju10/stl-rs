@@ -1,6 +1,8 @@
 # build directories
 /target
 
+/src/bin
+
 #editors
 .idea
 .vscode

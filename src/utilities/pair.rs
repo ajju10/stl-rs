@@ -12,10 +12,7 @@ impl<T, U> Pair<T, U> {
     /// let pair = Pair::new(1, 2);
     /// ```
     pub fn new(first: T, second: U) -> Self {
-        Pair {
-            first,
-            second,
-        }
+        Pair { first, second }
     }
 
     /// Returns a read-only reference to first value
