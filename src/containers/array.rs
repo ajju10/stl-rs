@@ -71,9 +71,7 @@ impl<T> Array<T> {
             None
         } else {
             self.size -= 1;
-            unsafe {
-                Some(ptr::read(self.const_ptr().add(self.size)))
-            }
+            unsafe { Some(ptr::read(self.const_ptr().add(self.size))) }
         }
     }
 
@@ -106,27 +104,23 @@ impl<T: Clone> Array<T> {
     }
 }
 
-impl <T> Drop for Array<T> {
+impl<T> Drop for Array<T> {
     fn drop(&mut self) {
-        while let Some(_) = self.pop() {}
+        while self.pop().is_some() {}
     }
 }
 
-impl <T> Deref for Array<T> {
+impl<T> Deref for Array<T> {
     type Target = [T];
 
     fn deref(&self) -> &[T] {
-        unsafe {
-            std::slice::from_raw_parts(self.const_ptr(), self.size)
-        }
+        unsafe { std::slice::from_raw_parts(self.const_ptr(), self.size) }
     }
 }
 
-impl <T> DerefMut for Array<T> {
+impl<T> DerefMut for Array<T> {
     fn deref_mut(&mut self) -> &mut [T] {
-        unsafe {
-            std::slice::from_raw_parts_mut(self.ptr(), self.size)
-        }
+        unsafe { std::slice::from_raw_parts_mut(self.ptr(), self.size) }
     }
 }
 
@@ -139,7 +133,7 @@ macro_rules! array {
 
 #[cfg(test)]
 mod tests {
-    use crate::containers::array::Array;
+    use super::*;
 
     #[test]
     fn test_array() {
