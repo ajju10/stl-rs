@@ -94,9 +94,7 @@ impl<T> ForwardList<T> {
     }
 
     fn pop_back_node_ptr(&mut self) -> Option<Box<Node<T>>> {
-        if self.head.is_none() {
-            return None;
-        }
+        self.head?;
 
         let mut temp = self.head;
         let mut temp1 = None;
